@@ -1,0 +1,2 @@
+# browser
+Epiphany Flatpak Red
