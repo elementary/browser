@@ -14,4 +14,4 @@ jobs:
     - uses: bilelmoussaoui/flatpak-github-actions@v2
       with:
         bundle: "org.gnome.epiphany.flatpak"
-        manifest-path: "org.gnome.Epiphany.json"
+        manifest-path: "org.gnome.epiphany.yml"
