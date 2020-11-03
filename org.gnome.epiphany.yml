@@ -1,0 +1,48 @@
+app-id: org.gnome.Epiphany
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+sdk: org.gnome.Sdk
+command: epiphany
+finish-args:
+  - '--device=dri'
+  - '--filesystem=/run/.heim_org.h5l.kcm-socket'
+  - '--filesystem=xdg-download'
+  - '--share=ipc'
+  - '--share=network'
+  - '--socket=fallback-x11'
+  - '--socket=pulseaudio'
+  - '--socket=wayland'
+  - '--system-talk-name=org.freedesktop.GeoClue2'
+modules:
+  - name: dazzle
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libdazzle.git
+
+  - name: handy
+    buildsystem: meson
+    config-opts:
+      - '-Dexamples=false'
+      - '-Dglade_catalog=disabled'
+      - '-Dtests=false'
+      - '-Dvapi=false'
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libhandy.git
+        tag: '1.0.0'
+
+  - name: libportal
+    buildsystem: meson
+    config-opts:
+      - '-Dgtk_doc=false'
+    sources:
+      - type: git
+        url: https://github.com/flatpak/libportal.git
+
+  - name: epiphany
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/epiphany.git
+        disable-shallow-clone: true
