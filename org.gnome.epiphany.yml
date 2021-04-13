@@ -45,5 +45,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '3.38.2'
+        tag: '3.38.3'
         disable-shallow-clone: true
