@@ -14,5 +14,7 @@ jobs:
     - uses: bilelmoussaoui/flatpak-github-actions@master
       with:
         bundle: "org.gnome.epiphany.flatpak"
-        runtime-repo: "https://flatpak.elementary.io/elementary.flatpakrepo"
         manifest-path: "org.gnome.epiphany.yml"
+        repository-name: "elementary"
+        repository-url: "https://flatpak.elementary.io/elementary.flatpakrepo"
+        cache-key: "flatpak-builder-${{ github.sha }}"
