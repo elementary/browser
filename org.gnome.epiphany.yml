@@ -1,7 +1,7 @@
 app-id: org.gnome.Epiphany
-runtime: org.gnome.Platform
-runtime-version: '3.38'
-sdk: org.gnome.Sdk
+runtime: io.elementary.Platform
+runtime-version: '0.1.0'
+sdk: io.elementary.Sdk
 command: epiphany
 finish-args:
   - '--device=dri'
@@ -20,18 +20,6 @@ modules:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libdazzle.git
         tag: '3.38.0'
-
-  - name: handy
-    buildsystem: meson
-    config-opts:
-      - '-Dexamples=false'
-      - '-Dglade_catalog=disabled'
-      - '-Dtests=false'
-      - '-Dvapi=false'
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libhandy.git
-        tag: '1.2.0'
 
   - name: libportal
     buildsystem: meson
