@@ -1,0 +1,37 @@
+
+name: Merge
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy_flatpak:
+    name: Deploy Flatpak
+    runs-on: ubuntu-latest
+
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:elementary-juno
+      options: --privileged
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@master
+        with:
+          bundle: org.gnome.epiphany.flatpak
+          manifest-path: org.gnome.epiphany.yml
+          run-tests: true
+          repository-name: elementary
+          repository-url: https://flatpak.elementary.io/elementary.flatpakrepo
+          cache-key: "flatpak-builder-${{ github.sha }}"
+
+      - name: Deploy
+        uses: bilelmoussaoui/flatpak-github-actions/flat-manager@master
+        with:
+          repository: elementary
+          flat-manager-url: https://flatpak-api.elementary.io
+          token: ${{ secrets.FLAT_MANAGER_TOKEN }}
