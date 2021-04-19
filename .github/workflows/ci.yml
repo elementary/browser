@@ -1,0 +1,32 @@
+
+name: CI
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  flatpak:
+    name: Flatpak
+    runs-on: ubuntu-latest
+
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:elementary-juno
+      options: --privileged
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@master
+        with:
+          bundle: org.gnome.epiphany.flatpak
+          manifest-path: org.gnome.epiphany.yml
+          run-tests: true
+          repository-name: elementary
+          repository-url: https://flatpak.elementary.io/elementary.flatpakrepo
+          cache-key: "flatpak-builder-${{ github.sha }}"
