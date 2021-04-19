@@ -1,6 +1,6 @@
 app-id: org.gnome.Epiphany
 runtime: io.elementary.Platform
-runtime-version: '0.1.0'
+runtime-version: daily
 sdk: io.elementary.Sdk
 command: epiphany
 finish-args:
