@@ -29,7 +29,7 @@ jobs:
           cache-key: "flatpak-builder-${{ github.sha }}"
 
       - name: Deploy
-        uses: bilelmoussaoui/flatpak-github-actions/flat-manager@master
+        uses: bilelmoussaoui/flatpak-github-actions/flat-manager@v3
         with:
           repository: elementary
           flat-manager-url: https://flatpak-api.elementary.io
