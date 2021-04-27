@@ -27,5 +27,5 @@ jobs:
           bundle: org.gnome.epiphany.flatpak
           manifest-path: org.gnome.epiphany.yml
           repository-name: elementary
-          repository-url: https://flatpak.elementary.io/elementary.flatpakrepo
+          repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
