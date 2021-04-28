@@ -31,6 +31,6 @@ jobs:
       - name: Deploy
         uses: bilelmoussaoui/flatpak-github-actions/flat-manager@v3
         with:
-          repository: elementary
+          repository: appcenter
           flat-manager-url: https://flatpak-api.elementary.io
           token: ${{ secrets.FLAT_MANAGER_TOKEN }}
