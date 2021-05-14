@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: elementary/flatpak-platform/runtime:daily
+      image: ghcr.io/elementary/flatpak-platform/runtime:daily
       options: --privileged
 
     steps:
