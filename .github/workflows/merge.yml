@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: bilelmoussaoui/flatpak-github-actions:elementary-juno
+      image: ghcr.io/elementary/flatpak-platform/runtime:daily
       options: --privileged
 
     steps:
@@ -27,6 +27,7 @@ jobs:
           repository-name: elementary
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
+          branch: daily
 
       - name: Deploy
         uses: bilelmoussaoui/flatpak-github-actions/flat-manager@v3
