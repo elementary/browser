@@ -37,3 +37,5 @@ modules:
         url: https://gitlab.gnome.org/GNOME/epiphany.git
         tag: '3.38.3'
         disable-shallow-clone: true
+      - type: patch
+        path: navigation-buttons.patch
