@@ -1,0 +1,38 @@
+diff --git a/src/ephy-shell.c b/src/ephy-shell.c
+index 56e3de9a1..6efdca407 100644
+--- a/src/ephy-shell.c
++++ b/src/ephy-shell.c
+@@ -483,6 +483,20 @@ run_in_background_set_mapping (const GValue       *value,
+   return g_variant_new_boolean (g_variant_get_boolean (var));
+ }
+ 
++static void
++ephy_shell_set_prefers_color_scheme (EphyShell *shell)
++{
++       GtkSettings *gtk_settings = gtk_settings_get_default ();
++       GraniteSettings *granite_settings = granite_settings_get_default ();
++
++       g_object_set (
++           gtk_settings,
++           "gtk-application-prefer-dark-theme",
++           granite_settings_get_prefers_color_scheme (granite_settings) == GRANITE_SETTINGS_COLOR_SCHEME_DARK,
++           NULL
++    );
++}
++
+ static void
+ ephy_shell_startup (GApplication *application)
+ {
+@@ -502,6 +516,11 @@ ephy_shell_startup (GApplication *application)
+                   "gtk-icon-theme-name", "elementary",
+                   "gtk-cursor-theme-name", "elementary",
+                   NULL);
++
++    ephy_shell_set_prefers_color_scheme ();
++
++    g_signal_connect (granite_settings, "notify::prefers-color-scheme",
++        G_CALLBACK (ephy_shell_set_prefers_color_scheme), self);
+   }
+ 
+   /* We're not remoting; start our services */
+
