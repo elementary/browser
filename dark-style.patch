@@ -1,38 +1,76 @@
+diff --git a/meson.build b/meson.build
+index 3d80fbc0b..c2da28b94 100644
+--- a/meson.build
++++ b/meson.build
+@@ -92,6 +92,7 @@ hogweed_dep = dependency('hogweed', version: nettle_requirement)
+ iso_codes_dep = dependency('iso-codes', version: '>= 0.35')
+ json_glib_dep = dependency('json-glib-1.0', version: '>= 1.2.4')
+ libdazzle_dep = dependency('libdazzle-1.0', version: '>= 3.37.1')
++libgranite_dep = dependency('granite', version: '>= 6.0.0')
+ libhandy_dep = dependency('libhandy-1', version: '>= 1.0.0')
+ libsecret_dep = dependency('libsecret-1', version: '>= 0.19.0')
+ libsoup_dep = dependency('libsoup-2.4', version: '>= 2.48.0')
 diff --git a/src/ephy-shell.c b/src/ephy-shell.c
-index 56e3de9a1..6efdca407 100644
+index 01854f42b..da9457e7b 100644
 --- a/src/ephy-shell.c
 +++ b/src/ephy-shell.c
-@@ -483,6 +483,20 @@ run_in_background_set_mapping (const GValue       *value,
+@@ -49,6 +49,7 @@
+ 
+ #include <glib/gi18n.h>
+ #include <gtk/gtk.h>
++#include <granite.h>
+ #include <handy.h>
+ 
+ struct _EphyShell {
+@@ -467,6 +468,20 @@ run_in_background_set_mapping (const GValue       *value,
    return g_variant_new_boolean (g_variant_get_boolean (var));
  }
  
 +static void
 +ephy_shell_set_prefers_color_scheme (EphyShell *shell)
 +{
-+       GtkSettings *gtk_settings = gtk_settings_get_default ();
-+       GraniteSettings *granite_settings = granite_settings_get_default ();
++    GtkSettings* gtk_settings = gtk_settings_get_default ();
++    GraniteSettings* granite_settings = granite_settings_get_default ();
 +
-+       g_object_set (
-+           gtk_settings,
-+           "gtk-application-prefer-dark-theme",
-+           granite_settings_get_prefers_color_scheme (granite_settings) == GRANITE_SETTINGS_COLOR_SCHEME_DARK,
-+           NULL
++    g_object_set (
++        gtk_settings,
++        "gtk-application-prefer-dark-theme",
++        granite_settings_get_prefers_color_scheme (granite_settings) == GRANITE_SETTINGS_COLOR_SCHEME_DARK,
++        NULL
 +    );
 +}
 +
  static void
  ephy_shell_startup (GApplication *application)
  {
-@@ -502,6 +516,11 @@ ephy_shell_startup (GApplication *application)
-                   "gtk-icon-theme-name", "elementary",
-                   "gtk-cursor-theme-name", "elementary",
-                   NULL);
-+
-+    ephy_shell_set_prefers_color_scheme ();
-+
-+    g_signal_connect (granite_settings, "notify::prefers-color-scheme",
-+        G_CALLBACK (ephy_shell_set_prefers_color_scheme), self);
-   }
+@@ -474,11 +489,18 @@ ephy_shell_startup (GApplication *application)
+   EphyShell *shell = EPHY_SHELL (application);
+   EphyEmbedShellMode mode;
+   GAction *action;
++  GraniteSettings* granite_settings = granite_settings_get_default ();
  
+   G_APPLICATION_CLASS (ephy_shell_parent_class)->startup (application);
+ 
+   hdy_init ();
+ 
++  ephy_shell_set_prefers_color_scheme (shell);
++
++  g_signal_connect (granite_settings, "notify::prefers-color-scheme",
++    G_CALLBACK (ephy_shell_set_prefers_color_scheme), shell
++  );
++
    /* We're not remoting; start our services */
+ 
+   mode = ephy_embed_shell_get_mode (embed_shell);
+diff --git a/src/meson.build b/src/meson.build
+index c25d88eff..54876cd30 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -68,6 +68,7 @@ libephymain_deps = [
+   ephywidgets_dep,
+   gdk_dep,
+   gvdb_dep,
++  libgranite_dep,
+   libhandy_dep
+ ]
 
