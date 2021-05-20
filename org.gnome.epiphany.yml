@@ -13,6 +13,9 @@ finish-args:
   - '--socket=pulseaudio'
   - '--socket=wayland'
   - '--system-talk-name=org.freedesktop.GeoClue2'
+
+  # needed for prefers-color-scheme
+  - '--system-talk-name=org.freedesktop.Accounts'
 modules:
   - name: dazzle
     buildsystem: meson
@@ -37,5 +40,7 @@ modules:
         url: https://gitlab.gnome.org/GNOME/epiphany.git
         tag: '3.38.3'
         disable-shallow-clone: true
+      - type: patch
+        path: dark-style.patch
       - type: patch
         path: navigation-buttons.patch
