@@ -29,7 +29,6 @@ jobs:
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
           branch: stable
-      
       - name: Deploy
         uses: bilelmoussaoui/flatpak-github-actions/flat-manager@v3
         with:
