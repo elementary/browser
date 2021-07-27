@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:daily
+      image: ghcr.io/elementary/flatpak-platform/runtime:6
       options: --privileged
 
     steps:
@@ -22,13 +22,13 @@ jobs:
       - name: Build
         uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@master
         with:
-          bundle: org.gnome.epiphany.flatpak
+          bundle: epiphany.flatpak
           manifest-path: org.gnome.epiphany.yml
-          repository-name: elementary
+          run-tests: true
+          repository-name: appcenter
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
-          branch: daily
-
+          branch: stable
       - name: Deploy
         uses: bilelmoussaoui/flatpak-github-actions/flat-manager@v3
         with:
