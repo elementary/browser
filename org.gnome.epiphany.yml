@@ -38,7 +38,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '3.38.3'
+        tag: '3.38.6'
+        commit: 73615c0fc1f76842aa7ee98614c10de398b809ae
         disable-shallow-clone: true
       - type: patch
         path: dark-style.patch
