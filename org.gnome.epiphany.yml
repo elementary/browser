@@ -33,6 +33,42 @@ modules:
         url: https://github.com/flatpak/libportal.git
         tag: '0.4'
 
+  - name: webkit
+    buildsystem: cmake
+    config-opts:
+    - '-DPORT=GTK'
+    - '-DENABLE_BUBBLEWRAP_SANDBOX=ON'
+    - '-DUSE_SOUP2=ON' # Once GNOME Web 41 is available, turn this off and include libsoup3 as a dependency
+    sources:
+      - type: archive
+        url: https://webkitgtk.org/releases/webkitgtk-2.34.0.tar.xz
+        sha256: 880c8ee626f67019f67557ca09e59a23ecf245e60f6173215f1a8823cb09af34
+    modules:
+      - name: evdev
+        buildsystem: meson
+        config-opts:
+        - '-Dtests=disabled'
+        sources:
+          - type: git
+            url: https://gitlab.freedesktop.org/libevdev/libevdev.git
+            tag: 'libevdev-1.11.0'
+      - name: manette
+        buildsystem: meson
+        sources:
+          - type: git
+            url: https://gitlab.gnome.org/GNOME/libmanette.git
+            commit: '0.2.6'
+      - name: bubblewrap
+        sources:
+          - type: git
+            url: https://github.com/containers/bubblewrap.git
+            tag: 'v0.5.0'
+      - name: xdg-dbus-proxy
+        sources:
+          - type: git
+            url: https://github.com/flatpak/xdg-dbus-proxy.git
+            tag: '0.1.2'
+
   - name: epiphany
     buildsystem: meson
     sources:
