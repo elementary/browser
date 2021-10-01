@@ -4,7 +4,7 @@ runtime-version: '6'
 sdk: io.elementary.Sdk
 command: epiphany
 finish-args:
-  - '--device=dri'
+  - '--device=all'
   - '--filesystem=/run/.heim_org.h5l.kcm-socket'
   - '--filesystem=xdg-download'
   - '--share=ipc'
@@ -43,6 +43,8 @@ modules:
       - type: archive
         url: https://webkitgtk.org/releases/webkitgtk-2.34.0.tar.xz
         sha256: 880c8ee626f67019f67557ca09e59a23ecf245e60f6173215f1a8823cb09af34
+      - type: patch # Remove once https://bugs.webkit.org/show_bug.cgi?id=228664 is merged and available
+        path: webkit-emoji-picker.patch
     modules:
       - name: evdev
         buildsystem: meson
