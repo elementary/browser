@@ -37,8 +37,8 @@ modules:
     buildsystem: meson
     sources:
       - type: git
-        url: https://github.com/davidmhewitt/stylesheet.git
-        branch: tabbar-testing
+        url: https://github.com/elementary/stylesheet.git
+        branch: hdy-tabbar-redo
     modules:
       - name: sassc
         cleanup:
