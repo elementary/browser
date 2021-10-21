@@ -41,10 +41,8 @@ modules:
     - '-DUSE_SOUP2=ON' # Once GNOME Web 41 is available, turn this off and include libsoup3 as a dependency
     sources:
       - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.34.0.tar.xz
-        sha256: 880c8ee626f67019f67557ca09e59a23ecf245e60f6173215f1a8823cb09af34
-      - type: patch # Remove once https://bugs.webkit.org/show_bug.cgi?id=228664 is merged and available
-        path: webkit-emoji-picker.patch
+        url: https://webkitgtk.org/releases/webkitgtk-2.34.1.tar.xz
+        sha256: 443c1316705de024741748e85fe32324d299d9ee68e6feb340b89e4a04073dee
     modules:
       - name: evdev
         buildsystem: meson
