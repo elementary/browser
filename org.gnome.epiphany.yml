@@ -33,38 +33,6 @@ modules:
         url: https://github.com/flatpak/libportal.git
         tag: '0.4'
 
-  - name: stylesheet
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://github.com/elementary/stylesheet.git
-        branch: master
-
-    modules:
-      - name: sassc
-        cleanup:
-          - '*'
-        sources:
-          - type: git
-            url: https://github.com/sass/sassc.git
-            tag: 3.6.1
-          - type: script
-            dest-filename: autogen.sh
-            commands:
-              - autoreconf -si
-        modules:
-          - name: libsass
-            cleanup:
-              - '*'
-            sources:
-              - type: git
-                url: https://github.com/sass/libsass.git
-                tag: 3.6.4
-              - type: script
-                dest-filename: autogen.sh
-                commands:
-                  - autoreconf -si
-
   - name: epiphany
     buildsystem: meson
     sources:
@@ -77,3 +45,5 @@ modules:
         path: dark-style.patch
       - type: patch
         path: navigation-buttons.patch
+      - type: patch
+        path: tab-close-position.patch
