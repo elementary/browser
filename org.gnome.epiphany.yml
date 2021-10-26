@@ -14,8 +14,6 @@ finish-args:
   - '--socket=wayland'
   - '--system-talk-name=org.freedesktop.GeoClue2'
 
-  # needed for prefers-color-scheme
-  - '--system-talk-name=org.freedesktop.Accounts'
 modules:
   - name: dazzle
     buildsystem: meson
