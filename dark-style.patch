@@ -1,20 +1,20 @@
 diff --git a/meson.build b/meson.build
-index 3d80fbc0b..c2da28b94 100644
+index de9cbfa85..647f61760 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -92,6 +92,7 @@ hogweed_dep = dependency('hogweed', version: nettle_requirement)
- iso_codes_dep = dependency('iso-codes', version: '>= 0.35')
- json_glib_dep = dependency('json-glib-1.0', version: '>= 1.2.4')
+@@ -92,6 +92,7 @@ iso_codes_dep = dependency('iso-codes', version: '>= 0.35')
+ json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6')
+ libarchive_dep = dependency('libarchive')
  libdazzle_dep = dependency('libdazzle-1.0', version: '>= 3.37.1')
 +libgranite_dep = dependency('granite', version: '>= 6.0.0')
- libhandy_dep = dependency('libhandy-1', version: '>= 1.0.0')
+ libhandy_dep = dependency('libhandy-1', version: '>= 1.1.0')
  libsecret_dep = dependency('libsecret-1', version: '>= 0.19.0')
  libsoup_dep = dependency('libsoup-2.4', version: '>= 2.48.0')
 diff --git a/src/ephy-shell.c b/src/ephy-shell.c
-index 01854f42b..da9457e7b 100644
+index 650531da8..b9d1355e8 100644
 --- a/src/ephy-shell.c
 +++ b/src/ephy-shell.c
-@@ -49,6 +49,7 @@
+@@ -50,6 +50,7 @@
  
  #include <glib/gi18n.h>
  #include <gtk/gtk.h>
@@ -22,7 +22,7 @@ index 01854f42b..da9457e7b 100644
  #include <handy.h>
  
  struct _EphyShell {
-@@ -467,6 +468,20 @@ run_in_background_set_mapping (const GValue       *value,
+@@ -483,6 +484,20 @@ run_in_background_set_mapping (const GValue       *value,
    return g_variant_new_boolean (g_variant_get_boolean (var));
  }
  
@@ -43,7 +43,7 @@ index 01854f42b..da9457e7b 100644
  static void
  ephy_shell_startup (GApplication *application)
  {
-@@ -474,11 +489,18 @@ ephy_shell_startup (GApplication *application)
+@@ -490,11 +505,18 @@ ephy_shell_startup (GApplication *application)
    EphyShell *shell = EPHY_SHELL (application);
    EphyEmbedShellMode mode;
    GAction *action;
@@ -59,18 +59,18 @@ index 01854f42b..da9457e7b 100644
 +    G_CALLBACK (ephy_shell_set_prefers_color_scheme), shell
 +  );
 +
-   /* We're not remoting; start our services */
- 
-   mode = ephy_embed_shell_get_mode (embed_shell);
+   /* If we are under Pantheon set the icon-theme and cursor-theme accordingly. */
+   if (is_desktop_pantheon ()) {
+     GtkSettings *settings = gtk_settings_get_default ();
 diff --git a/src/meson.build b/src/meson.build
-index c25d88eff..54876cd30 100644
+index 5bf3eb92e..d17b1b6d9 100644
 --- a/src/meson.build
 +++ b/src/meson.build
-@@ -68,6 +68,7 @@ libephymain_deps = [
-   ephywidgets_dep,
+@@ -74,6 +74,7 @@ libephymain_deps = [
    gdk_dep,
    gvdb_dep,
+   libarchive_dep,
 +  libgranite_dep,
    libhandy_dep
  ]
-
+ 
