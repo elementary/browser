@@ -1,0 +1,23 @@
+From 6e9d6d3cf7fa7ddf21a70e9816a5cd4767a79523 Mon Sep 17 00:00:00 2001
+From: Alexander Mikhaylenko <alexm@gnome.org>
+Date: Fri, 22 Oct 2021 14:14:03 +0500
+Subject: [PATCH] tab-view: Update close button position on startup
+
+This fell through the cracks in 45e54573dbf26cf1f9e9e58440ec0dc96bf545ec
+---
+ src/ephy-tab-view.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/ephy-tab-view.c b/src/ephy-tab-view.c
+index 7fe89ab0f..17be93184 100644
+--- a/src/ephy-tab-view.c
++++ b/src/ephy-tab-view.c
+@@ -660,4 +660,5 @@ ephy_tab_view_set_tab_bar (EphyTabView *self,
+                            G_CONNECT_SWAPPED);
+ 
+   visibility_policy_changed_cb (self);
++  notify_decoration_layout_cb (self);
+ }
+-- 
+GitLab
+
