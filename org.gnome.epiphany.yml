@@ -14,15 +14,13 @@ finish-args:
   - '--socket=wayland'
   - '--system-talk-name=org.freedesktop.GeoClue2'
 
-  # needed for prefers-color-scheme
-  - '--system-talk-name=org.freedesktop.Accounts'
 modules:
   - name: dazzle
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libdazzle.git
-        tag: '3.38.0'
+        tag: '3.40.0'
 
   - name: libportal
     buildsystem: meson
@@ -74,10 +72,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '3.38.6'
-        commit: 73615c0fc1f76842aa7ee98614c10de398b809ae
+        tag: '40.3'
+        commit: 39ea7a27f3dc7f6c45095dcb73ce82e78dc0a4b2
         disable-shallow-clone: true
       - type: patch
         path: dark-style.patch
       - type: patch
         path: navigation-buttons.patch
+      - type: patch
+        path: tab-close-position.patch
