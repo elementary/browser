@@ -1,6 +1,6 @@
 app-id: org.gnome.Epiphany
 runtime: io.elementary.Platform
-runtime-version: '6'
+runtime-version: 'daily'
 sdk: io.elementary.Sdk
 command: epiphany
 finish-args:
@@ -36,8 +36,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '40.3'
-        commit: 39ea7a27f3dc7f6c45095dcb73ce82e78dc0a4b2
+        tag: '41.0'
+        commit: 3102c1bf3d7ff482853016d10992a94efdd708e0356d
         disable-shallow-clone: true
       - type: patch
         path: dark-style.patch
