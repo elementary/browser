@@ -20,7 +20,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libdazzle.git
-        tag: '3.40.0'
+        tag: '3.42.0'
 
   - name: libportal
     buildsystem: meson
