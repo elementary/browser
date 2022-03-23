@@ -43,5 +43,3 @@ modules:
         disable-shallow-clone: true
       - type: patch
         path: navigation-buttons.patch
-      - type: patch
-        path: tab-close-position.patch
