@@ -52,8 +52,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '42.0'
-        commit: 80217e512db2bd375c8b5b959660099aeeee9ed9
+        tag: '42.2'
+        commit: 8dd7d3e2fa3cab3c85865e60a649aa859ff499db
         disable-shallow-clone: true
       - type: patch
         path: navigation-buttons.patch
