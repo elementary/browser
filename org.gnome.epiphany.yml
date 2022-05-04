@@ -1,6 +1,6 @@
 app-id: org.gnome.Epiphany
 runtime: io.elementary.Platform
-runtime-version: '6.1'
+runtime-version: '7'
 sdk: io.elementary.Sdk
 command: epiphany
 finish-args:
@@ -20,28 +20,26 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libdazzle.git
-        tag: '3.42.0'
+        tag: '3.44.0'
 
   - name: libportal
     buildsystem: meson
     config-opts:
-      - '-Dgtk_doc=false'
+      - '-Dbackends=gtk3'
+      - '-Dintrospection=false'
+      - '-Ddocs=false'
     sources:
       - type: git
         url: https://github.com/flatpak/libportal.git
-        tag: '0.4'
+        tag: '0.5'
 
   - name: epiphany
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '41.0'
-        commit: d8163fa7ea74b2be14da9d4217e9d3e0c41cdb2a
+        tag: '42.2'
+        commit: 8dd7d3e2fa3cab3c85865e60a649aa859ff499db
         disable-shallow-clone: true
       - type: patch
-        path: dark-style.patch
-      - type: patch
         path: navigation-buttons.patch
-      - type: patch
-        path: tab-close-position.patch
