@@ -31,15 +31,16 @@ modules:
     sources:
       - type: git
         url: https://github.com/flatpak/libportal.git
-        tag: '0.5'
+        tag: '0.6'
+        commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
 
   - name: epiphany
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '42.2'
-        commit: 8dd7d3e2fa3cab3c85865e60a649aa859ff499db
+        tag: '42.3'
+        commit: 6cdf86702e747867b2f4b338429733f84f554f80
         disable-shallow-clone: true
       - type: patch
         path: navigation-buttons.patch
