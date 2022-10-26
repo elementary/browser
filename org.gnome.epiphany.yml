@@ -44,8 +44,8 @@ modules:
         disable-shallow-clone: true
       - type: patch
         path: navigation-buttons.patch
-			 cleanup:
-			 	- 'org.gnome.Epiphany.svg'
+    cleanup:
+    - 'org.gnome.Epiphany.svg'
 
   - name: customizations
     buildsystem: meson
