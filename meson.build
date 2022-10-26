@@ -1,3 +1,3 @@
-project('org.gnome.epiphany')
+project('org.gnome.Epiphany')
 
 subdir('data')
