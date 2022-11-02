@@ -1,4 +1,4 @@
-Source: io.elementary.camera
+Source: io.elementary.browser
 Section: x11
 Maintainer: elementary, Inc. <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1)
