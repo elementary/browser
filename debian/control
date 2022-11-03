@@ -1,0 +1,13 @@
+Source: org.gnome.Epiphany
+Section: x11
+Maintainer: elementary, Inc. <builds@elementary.io>
+Build-Depends: debhelper (>= 10.5.1)
+Standards-Version: 3.9.6
+Homepage: https://github.com/elementary/browser
+
+Package: org.gnome.Epiphany
+Architecture: any
+Priority: optional
+Depends: flatpak, ${misc:Depends}
+Description: Epiphany
+ Epiphany (aka GNOME Web) Flatpak'd for elementary OS
