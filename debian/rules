@@ -9,8 +9,5 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# disable unit testing
-export DEB_BUILD_OPTIONS=nocheck
-
 %:
 	dh $@

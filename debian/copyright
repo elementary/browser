@@ -1,5 +1,5 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: org.gnome.Epiphany
+Upstream-Name: org.gnome.epiphany
 Source: https://github.com/elementary/browser
 
 Files: *
