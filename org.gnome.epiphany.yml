@@ -1,6 +1,6 @@
 app-id: org.gnome.Epiphany
 runtime: io.elementary.Platform
-runtime-version: '7'
+runtime-version: '7.1'
 sdk: io.elementary.Sdk
 command: epiphany
 finish-args:
@@ -39,8 +39,14 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/epiphany.git
-        tag: '42.3'
-        commit: 6cdf86702e747867b2f4b338429733f84f554f80
+        tag: '43.0'
+        commit: e5882e2b1fa040fbe6494ee9808591046a6eafa5
         disable-shallow-clone: true
       - type: patch
         path: navigation-buttons.patch
+
+  - name: customizations
+    buildsystem: meson
+    sources:
+      - type: 'dir'
+        path: '.'
