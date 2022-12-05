@@ -1,0 +1,74 @@
+{
+    "app-id" : "org.gnome.Epiphany",
+    "runtime" : "io.elementary.Platform",
+    "runtime-version" : "7.1",
+    "sdk" : "io.elementary.Sdk",
+    "command" : "epiphany",
+    "finish-args" : [
+        "--device=dri",
+        "--filesystem=xdg-download",
+        "--share=ipc",
+        "--share=network",
+        "--socket=fallback-x11",
+        "--socket=pulseaudio",
+        "--socket=wayland",
+        "--system-talk-name=org.freedesktop.GeoClue2",
+        "--own-name=org.gnome.Epiphany.WebAppProvider"
+    ],
+    "modules" : [
+        {
+            "name" : "libdazzle",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git",
+                    "tag" : "3.44.0"
+                }
+            ]
+        },
+        {
+            "name" : "libportal",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dbackends=gtk3",
+                "-Dintrospection=false",
+                "-Ddocs=false"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/flatpak/libportal.git",
+                    "tag" : "0.6"
+                }
+            ]
+        },
+        {
+            "name": "epiphany",
+            "buildsystem":  "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/epiphany.git",
+                    "tag" : "43.0",
+                    "commit" : "e5882e2b1fa040fbe6494ee9808591046a6eafa5",
+                    "disable-shallow-clone" : true
+                },
+                {
+                    "type" : "patch",
+                    "path" : "navigation-buttons.patch"
+                }
+            ]
+        },
+        {
+            "name" : "customizations",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "."
+                }
+            ]
+        }
+    ]
+}
