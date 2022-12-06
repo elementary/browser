@@ -37,7 +37,7 @@ jobs:
         uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
         with:
           bundle: org.gnome.epiphany.flatpak
-          manifest-path: org.gnome.epiphany.yml
+          manifest-path: org.gnome.epiphany.json
           repository-name: elementary
           repository-url: https://flatpak.elementary.io/repo.flatpakrepo
           cache-key: "flatpak-builder-${{ github.sha }}"
