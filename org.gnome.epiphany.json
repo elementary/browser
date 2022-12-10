@@ -58,6 +58,9 @@
                     "type" : "patch",
                     "path" : "navigation-buttons.patch"
                 }
+            ],
+            "cleanup": [
+                "org.gnome.Epiphany.svg"
             ]
         },
         {
