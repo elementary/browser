@@ -15,6 +15,18 @@
         "--system-talk-name=org.freedesktop.GeoClue2",
         "--own-name=org.gnome.Epiphany.WebAppProvider"
     ],
+    "add-extensions": [
+        {
+            "org.freedesktop.Platform.GL": {
+                "directory": "lib/GL",
+                "version": "22.08",
+                "subdirectories": true,
+                "add-ld-path": "lib",
+                "download-if": "active-gl-driver",
+                "enable-if": "active-gl-driver"
+            }
+        }
+    ],
     "modules" : [
         {
             "name" : "libdazzle",
