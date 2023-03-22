@@ -8,40 +8,8 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs10" />
-  <circle
-     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
+  <path
      id="path376"
-     cx="6"
-     cy="4.0000005"
-     r="1" />
-  <circle
-     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
-     id="path376-3"
-     cx="6"
-     cy="8"
-     r="1" />
-  <circle
-     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
-     id="path376-3-6"
-     cx="6"
-     cy="12"
-     r="1" />
-  <circle
-     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
-     id="path376-7"
-     cx="10"
-     cy="4.0000005"
-     r="1" />
-  <circle
-     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
-     id="path376-3-5"
-     cx="10"
-     cy="8"
-     r="1" />
-  <circle
-     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
-     id="path376-3-6-3"
-     cx="10"
-     cy="12"
-     r="1" />
+     style="fill:#555761;stroke-width:2.5798;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000;opacity:0.5"
+     d="M 6 3 A 1 1 0 0 0 5 4 A 1 1 0 0 0 6 5 A 1 1 0 0 0 7 4 A 1 1 0 0 0 6 3 z M 10 3 A 1 1 0 0 0 9 4 A 1 1 0 0 0 10 5 A 1 1 0 0 0 11 4 A 1 1 0 0 0 10 3 z M 6 7 A 1 1 0 0 0 5 8 A 1 1 0 0 0 6 9 A 1 1 0 0 0 7 8 A 1 1 0 0 0 6 7 z M 10 7 A 1 1 0 0 0 9 8 A 1 1 0 0 0 10 9 A 1 1 0 0 0 11 8 A 1 1 0 0 0 10 7 z M 6 11 A 1 1 0 0 0 5 12 A 1 1 0 0 0 6 13 A 1 1 0 0 0 7 12 A 1 1 0 0 0 6 11 z M 10 11 A 1 1 0 0 0 9 12 A 1 1 0 0 0 10 13 A 1 1 0 0 0 11 12 A 1 1 0 0 0 10 11 z " />
 </svg>

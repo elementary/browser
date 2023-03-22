@@ -24,6 +24,11 @@ install_data(
 )
 
 install_data(
+    'selection-mode-symbolic.svg',
+    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'actions' / 'symbolic',
+)
+
+install_data(
     'adw-tab-counter-symbolic.svg',
     install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
 )
