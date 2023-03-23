@@ -1,10 +1,10 @@
 {
-    "app-id" : "org.gnome.Epiphany",
-    "runtime" : "io.elementary.Platform",
-    "runtime-version" : "daily",
-    "sdk" : "io.elementary.Sdk",
-    "command" : "epiphany",
-    "finish-args" : [
+    "app-id": "org.gnome.Epiphany",
+    "runtime": "io.elementary.Platform",
+    "runtime-version": "daily",
+    "sdk": "io.elementary.Sdk",
+    "command": "epiphany",
+    "finish-args": [
         "--device=dri",
         "--filesystem=xdg-download",
         "--share=ipc",
@@ -12,58 +12,67 @@
         "--socket=fallback-x11",
         "--socket=pulseaudio",
         "--socket=wayland",
-        "--system-talk-name=org.freedesktop.GeoClue2",
-        "--own-name=org.gnome.Epiphany.WebAppProvider"
+        "--system-talk-name=org.freedesktop.GeoClue2"
     ],
-    "modules" : [
-        {
-            "name" : "libportal",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dbackends=gtk4",
-                "-Dintrospection=false",
-                "-Ddocs=false"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://github.com/flatpak/libportal.git",
-                    "tag" : "0.6"
-                }
-            ]
-        },
+    "modules": [
         {
             "name": "elementary-stylesheet",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "git",
-                    "url" : "https://github.com/elementary/stylesheet.git",
+                    "url": "https://github.com/elementary/stylesheet.git",
                     "branch" : "master"
                 }
             ],
             "modules": [
                 {
                     "name": "sassc",
-                    "buildsystem" : "meson",
-                    "cleanup": [ "*" ],
+                    "cleanup": [
+                        "*"
+                    ],
                     "sources": [
                         {
                             "type": "git",
-                            "url" : "https://github.com/lazka/sassc.git",
-                            "branch" : "meson"
+                            "url": "https://github.com/sass/sassc.git",
+                            "tag": "3.6.2",
+                            "x-checker-data": {
+                                "type": "git",
+                                "tag-pattern": "^([\\d.]+)$"
+                            },
+                            "commit": "66f0ef37e7f0ad3a65d2f481eff09d09408f42d0"
+                        },
+                        {
+                            "type": "script",
+                            "dest-filename": "autogen.sh",
+                            "commands": [
+                                "autoreconf -si"
+                            ]
                         }
                     ],
                     "modules": [
                         {
                             "name": "libsass",
-                            "buildsystem" : "meson",
-                            "cleanup": [ "*" ],
+                            "cleanup": [
+                                "*"
+                            ],
                             "sources": [
                                 {
                                     "type": "git",
-                                    "url" : "https://github.com/lazka/libsass.git",
-                                    "branch" : "meson"
+                                    "url": "https://github.com/sass/libsass.git",
+                                    "tag": "3.6.5",
+                                    "x-checker-data": {
+                                        "type": "git",
+                                        "tag-pattern": "^([\\d.]+)$"
+                                    },
+                                    "commit": "f6afdbb9288d20d1257122e71d88e53348a53af3"
+                                },
+                                {
+                                    "type": "script",
+                                    "dest-filename": "autogen.sh",
+                                    "commands": [
+                                        "autoreconf -si"
+                                    ]
                                 }
                             ]
                         }
@@ -72,17 +81,42 @@
             ]
         },
         {
-            "name" : "epiphany",
-            "buildsystem" : "meson",
-            "builddir" : true,
-            "config-opts" : [
+            "name": "libportal",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbackends=gtk4",
+                "-Dintrospection=false",
+                "-Ddocs=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
+                    "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/flatpak/libportal/releases/latest",
+                        "version-query": ".tag_name",
+                        "url-query": ".assets[] | select(.name==\"libportal-\" + $version + \".tar.xz\") | .browser_download_url"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "epiphany",
+            "buildsystem": "meson",
+            "config-opts": [
                 "-Dgranite=enabled"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/epiphany.git",
-                    "disable-shallow-clone" : true
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/epiphany/44/epiphany-44.0.tar.xz",
+                    "sha256": "aabdc9de80c409073676e00e15ba97187715e4b84bc776fe86db86d0f8140bb1",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "epiphany"
+                    }
                 }
             ],
             "cleanup": [
