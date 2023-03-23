@@ -1,8 +1,8 @@
 {
     "app-id" : "org.gnome.Epiphany",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "master",
-    "sdk" : "org.gnome.Sdk",
+    "runtime" : "io.elementary.Platform",
+    "runtime-version" : "daily",
+    "sdk" : "io.elementary.Sdk",
     "command" : "epiphany",
     "finish-args" : [
         "--device=dri",
@@ -37,8 +37,9 @@
             "buildsystem": "meson",
             "sources": [
                 {
-                    "type": "dir",
-                    "path": "/home/dani/Projects/stylesheet"
+                    "type": "git",
+                    "url" : "https://github.com/elementary/stylesheet.git",
+                    "branch" : "master"
                 }
             ],
             "modules": [
@@ -67,17 +68,6 @@
                             ]
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "granite",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/elementary/granite.git",
-                    "branch": "main"
                 }
             ]
         },
