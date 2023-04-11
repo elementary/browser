@@ -1,10 +1,10 @@
 {
-    "app-id" : "org.gnome.Epiphany",
-    "runtime" : "io.elementary.Platform",
-    "runtime-version" : "7.2",
-    "sdk" : "io.elementary.Sdk",
-    "command" : "epiphany",
-    "finish-args" : [
+    "app-id": "org.gnome.Epiphany",
+    "runtime": "io.elementary.Platform",
+    "runtime-version": "7.2",
+    "sdk": "io.elementary.Sdk",
+    "command": "epiphany",
+    "finish-args": [
         "--device=dri",
         "--filesystem=xdg-download",
         "--share=ipc",
@@ -12,51 +12,46 @@
         "--socket=fallback-x11",
         "--socket=pulseaudio",
         "--socket=wayland",
-        "--system-talk-name=org.freedesktop.GeoClue2",
-        "--own-name=org.gnome.Epiphany.WebAppProvider"
+        "--system-talk-name=org.freedesktop.GeoClue2"
     ],
-    "modules" : [
+    "modules": [
         {
-            "name" : "libdazzle",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git",
-                    "tag" : "3.44.0"
-                }
-            ]
-        },
-        {
-            "name" : "libportal",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dbackends=gtk3",
+            "name": "libportal",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbackends=gtk4",
                 "-Dintrospection=false",
                 "-Ddocs=false"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://github.com/flatpak/libportal.git",
-                    "tag" : "0.6"
+                    "type": "archive",
+                    "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
+                    "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/flatpak/libportal/releases/latest",
+                        "version-query": ".tag_name",
+                        "url-query": ".assets[] | select(.name==\"libportal-\" + $version + \".tar.xz\") | .browser_download_url"
+                    }
                 }
             ]
         },
         {
             "name": "epiphany",
-            "buildsystem":  "meson",
-            "sources" : [
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgranite=enabled"
+            ],
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/epiphany.git",
-                    "tag" : "43.0",
-                    "commit" : "e5882e2b1fa040fbe6494ee9808591046a6eafa5",
-                    "disable-shallow-clone" : true
-                },
-                {
-                    "type" : "patch",
-                    "path" : "navigation-buttons.patch"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/epiphany/44/epiphany-44.0.tar.xz",
+                    "sha256": "aabdc9de80c409073676e00e15ba97187715e4b84bc776fe86db86d0f8140bb1",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "epiphany"
+                    }
                 }
             ],
             "cleanup": [
