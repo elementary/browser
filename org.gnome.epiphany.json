@@ -46,8 +46,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/epiphany/44/epiphany-44.0.tar.xz",
-                    "sha256": "aabdc9de80c409073676e00e15ba97187715e4b84bc776fe86db86d0f8140bb1",
+                    "url": "https://download.gnome.org/sources/epiphany/44/epiphany-44.2.tar.xz",
+                    "sha256": "b1f6df15fb6a617fedd6198b2dcaabd4410d25834409da515709dd77cfc56b33",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "epiphany"
@@ -59,12 +59,12 @@
             ]
         },
         {
-            "name" : "customizations",
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "customizations",
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type" : "dir",
-                    "path" : "."
+                    "type": "dir",
+                    "path": "."
                 }
             ]
         }
