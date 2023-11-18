@@ -54,6 +54,10 @@
                         "type": "gnome",
                         "name": "epiphany"
                     }
+                },
+                {
+                    "type": "patch",
+                    "path": "downloads-flat.patch"
                 }
             ],
             "cleanup": [
