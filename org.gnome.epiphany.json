@@ -57,7 +57,15 @@
                 },
                 {
                     "type": "patch",
+                    "path": "bookmarks-row.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "downloads-flat.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "overview-button.patch"
                 }
             ],
             "cleanup": [

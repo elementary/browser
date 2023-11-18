@@ -14,6 +14,7 @@ foreach i : icon_sizes
 endforeach
 
 icon_names = [
+    'adw-tab-overview-symbolic.svg',
     'ephy-audio-muted-symbolic.svg',
     'ephy-audio-playing-symbolic.svg',
     'ephy-bookmark-tag-symbolic.svg',

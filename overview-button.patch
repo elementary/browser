@@ -1,0 +1,16 @@
+diff --git a/src/ephy-action-bar-end.c b/src/ephy-action-bar-end.c
+index 20034eec7..fb0666ef3 100644
+--- a/src/ephy-action-bar-end.c
++++ b/src/ephy-action-bar-end.c
+@@ -298,8 +298,9 @@ ephy_action_bar_end_init (EphyActionBarEnd *action_bar_end)
+   if (is_desktop_pantheon ()) {
+     gtk_menu_button_set_icon_name (GTK_MENU_BUTTON (action_bar_end->bookmarks_button),
+                                    "user-bookmarks");
+-    gtk_menu_button_set_icon_name (GTK_MENU_BUTTON (action_bar_end->overview_button),
+-                                   "view-grid");
++    gtk_button_set_icon_name (GTK_BUTTON (action_bar_end->overview_button),
++                                   "adw-tab-overview-symbolic");
++    gtk_widget_remove_css_class (action_bar_end->overview_button, "toolbar-button");
+   }
+ 
+   gtk_widget_set_visible (action_bar_end->overview_button,
