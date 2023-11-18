@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Epiphany",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "daily",
+    "runtime-version": "7.3",
     "sdk": "io.elementary.Sdk",
     "command": "epiphany",
     "finish-args": [
