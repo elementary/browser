@@ -13,47 +13,26 @@ foreach i : icon_sizes
     )
 endforeach
 
-install_data(
-    'adw-expander-arrow-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'actions' / 'symbolic',
-)
-
-install_data(
-    'list-drag-handle-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'actions' / 'symbolic',
-)
-
-install_data(
-    'selection-mode-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'actions' / 'symbolic',
-)
-
-install_data(
-    'adw-tab-counter-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
-)
-
-install_data(
-    'adw-tab-icon-missing-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
-)
-
-install_data(
-    'adw-tab-overflow-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
-)
-
-install_data(
-    'adw-tab-unpin-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
-)
-
-install_data(
+icon_names = [
+    'adw-tab-overview-symbolic.svg',
+    'ephy-audio-muted-symbolic.svg',
+    'ephy-audio-playing-symbolic.svg',
+    'ephy-bookmark-tag-symbolic.svg',
+    'ephy-download-done-symbolic.svg',
+    'ephy-download-symbolic.svg',
     'ephy-non-starred-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
-)
+    'ephy-open-link-symbolic.svg',
+    'ephy-permission-camera-symbolic.svg',
+    'ephy-permission-generic-symbolic.svg',
+    'ephy-permission-location-symbolic.svg',
+    'ephy-permission-microphone-symbolic.svg',
+    'ephy-permission-notifications-symbolic.svg',
+    'ephy-starred-symbolic.svg'
+]
 
-install_data(
-    'ephy-starred-symbolic.svg',
-    install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
-)
+foreach icon_name : icon_names
+    install_data(
+        icon_name,
+        install_dir: get_option('datadir') / 'icons' / 'elementary' / 'status' / 'symbolic',
+    )
+endforeach
