@@ -17,7 +17,7 @@ EOF
 fi
 
 flatpak remote-add --if-not-exists --system --filter=/etc/flatpak/freedesktop.filter freedesktop https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --system --noninteractive freedesktop org.freedesktop.Platform.GL.default//22.08 || true
+flatpak install --system --noninteractive freedesktop org.freedesktop.Platform.GL.default//23.08 || true
 
 #DEBHELPER#
 
