@@ -1,8 +1,8 @@
 {
     "app-id": "org.gnome.Epiphany",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "7.3",
-    "sdk": "io.elementary.Sdk",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
     "command": "epiphany",
     "finish-args": [
         "--device=dri",
@@ -36,6 +36,45 @@
                         "version-query": ".tag_name",
                         "url-query": ".assets[] | select(.name==\"libportal-\" + $version + \".tar.xz\") | .browser_download_url"
                     }
+                }
+            ]
+        },
+        {
+            "name": "elementary-stylesheet",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/elementary/stylesheet.git",
+                    "branch": "main"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "sassc",
+                    "buildsystem" : "meson",
+                    "cleanup": [ "*" ],
+                    "sources": [
+                        {
+                            "type": "git",
+                            "url" : "https://github.com/lazka/sassc.git",
+                            "branch" : "meson"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "name": "libsass",
+                            "buildsystem" : "meson",
+                            "cleanup": [ "*" ],
+                            "sources": [
+                                {
+                                    "type": "git",
+                                    "url" : "https://github.com/lazka/libsass.git",
+                                    "branch" : "meson"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
