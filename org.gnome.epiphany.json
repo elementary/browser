@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Epiphany",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "7.3",
+    "runtime-version": "8.0",
     "sdk": "io.elementary.Sdk",
     "command": "epiphany",
     "finish-args": [
@@ -15,30 +15,6 @@
         "--system-talk-name=org.freedesktop.GeoClue2"
     ],
     "modules": [
-        {
-            "name": "libportal",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dbackend-gtk3=disabled",
-                "-Dbackend-gtk4=enabled",
-                "-Dbackend-qt5=disabled",
-                "-Dintrospection=false",
-                "-Ddocs=false"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/flatpak/libportal/releases/download/0.7.1/libportal-0.7.1.tar.xz",
-                    "sha256": "297b90b263fad22190a26b8c7e8ea938fe6b18fb936265e588927179920d3805",
-                    "x-checker-data": {
-                        "type": "json",
-                        "url": "https://api.github.com/repos/flatpak/libportal/releases/latest",
-                        "version-query": ".tag_name",
-                        "url-query": ".assets[] | select(.name==\"libportal-\" + $version + \".tar.xz\") | .browser_download_url"
-                    }
-                }
-            ]
-        },
         {
             "name": "epiphany",
             "buildsystem": "meson",
