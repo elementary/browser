@@ -25,8 +25,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/epiphany/46/epiphany-46.3.tar.xz",
-                    "sha256": "a9e1ad206449117fc5ebe4d0177c1d7a2ff503d6b55019072a068ff2ab278656",
+                    "url": "https://download.gnome.org/sources/epiphany/47/epiphany-47.0.tar.xz",
+                    "sha256": "8e38ee7f90fd6054f8aef0e7f505d53c4520742f5acd1f008282a47b2764affa",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "epiphany"
