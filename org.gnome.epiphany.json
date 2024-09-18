@@ -29,7 +29,11 @@
                     "sha256": "a9e1ad206449117fc5ebe4d0177c1d7a2ff503d6b55019072a068ff2ab278656",
                     "x-checker-data": {
                         "type": "gnome",
-                        "name": "epiphany"
+                        "name": "epiphany",
+                        "versions": {
+                            /* TODO: Remove once libadwaita >= 1.6.alpha is available on our Flatpak platform */
+                            "<": "47"
+                        }
                     }
                 },
                 {
