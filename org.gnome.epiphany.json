@@ -31,7 +31,6 @@
                         "type": "gnome",
                         "name": "epiphany",
                         "versions": {
-                            /* TODO: Remove once libadwaita >= 1.6.alpha is available on our Flatpak platform */
                             "<": "47"
                         }
                     }
