@@ -29,10 +29,7 @@
                     "sha256": "b9c7dae15d038519bf189f440eacd8c27e5abfba39ce05e9c95823a9d6396311",
                     "x-checker-data": {
                         "type": "gnome",
-                        "name": "epiphany",
-                        "versions": {
-                            "<": "47"
-                        }
+                        "name": "epiphany"
                     }
                 },
                 {
