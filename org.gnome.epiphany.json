@@ -17,6 +17,64 @@
     ],
     "modules": [
         {
+          "name": "sassc",
+          "cleanup": [
+            "*"
+          ],
+          "buildsystem": "autotools",
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://github.com/sass/sassc/archive/refs/tags/3.6.2.tar.gz",
+              "sha256": "608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03"
+            },
+            {
+              "type": "script",
+              "dest-filename": "autogen.sh",
+              "commands": [
+                "autoreconf -si"
+              ]
+            }
+          ],
+          "modules": [
+            {
+              "name": "libsass",
+              "cleanup": [
+                "*"
+              ],
+              "buildsystem": "autotools",
+              "sources": [
+                {
+                  "type": "archive",
+                  "url": "https://github.com/sass/libsass/archive/refs/tags/3.6.5.tar.gz",
+                  "sha256": "89d8f2c46ae2b1b826b58ce7dde966a176bac41975b82e84ad46b01a55080582"
+                },
+                {
+                  "type": "script",
+                  "dest-filename": "autogen.sh",
+                  "commands": [
+                    "autoreconf -si"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stylesheet",
+          "buildsystem": "meson",
+          "cleanup": [
+            "/share/metainfo"
+          ],
+          "sources": [
+            {
+              "type": "git",
+              "url": "https://github.com/elementary/stylesheet.git",
+              "commit": "be3742f3198541ff794c2c65469ea8dcf5f19367"
+            }
+          ]
+        },
+        {
             "name": "epiphany",
             "buildsystem": "meson",
             "config-opts": [
