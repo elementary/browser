@@ -34,6 +34,10 @@
                 },
                 {
                     "type": "patch",
+                    "path": "0001-shell-Fix-startup-crash-on-Pantheon.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "downloads-flat.patch"
                 },
                 {
