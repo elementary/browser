@@ -27,7 +27,8 @@ icon_names = [
     'ephy-permission-location-symbolic.svg',
     'ephy-permission-microphone-symbolic.svg',
     'ephy-permission-notifications-symbolic.svg',
-    'ephy-starred-symbolic.svg'
+    'ephy-starred-symbolic.svg',
+    'preferences-system-privacy-symbolic.svg'
 ]
 
 foreach icon_name : icon_names
