@@ -25,16 +25,12 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/epiphany/48/epiphany-48.3.tar.xz",
-                    "sha256": "da2953e7e2b73bf7473c0a33979104d79362795295eaa0a2a38ea188537daf13",
+                    "url": "https://download.gnome.org/sources/epiphany/48/epiphany-48.5.tar.xz",
+                    "sha256": "0f66552ad6593c7952a3ddee5bf515656c8c434871076d9f1a91a7af9346b1b4",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "epiphany"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "fix-startup-crash.patch"
                 },
                 {
                     "type": "patch",
