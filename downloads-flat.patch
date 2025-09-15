@@ -1,12 +1,12 @@
-diff --git a/src/resources/gtk/action-bar-end.ui b/src/resources/gtk/action-bar-end.ui
-index b5d601fc2..7ed0cca4c 100644
---- a/src/resources/gtk/action-bar-end.ui
-+++ b/src/resources/gtk/action-bar-end.ui
-@@ -7,6 +7,7 @@
-         <property name="transition-type">crossfade</property>
-         <child>
-           <object class="GtkMenuButton" id="downloads_button">
-+            <property name="has_frame">False</property>
-             <!-- Translators: tooltip for the downloads button -->
-             <property name="tooltip_text" translatable="yes">Downloads</property>
-             <property name="receives_default">True</property>
+diff --git a/src/resources/gtk/action-bar-end.blp b/src/resources/gtk/action-bar-end.blp
+index 05567f805..9e461d9e0 100644
+--- a/src/resources/gtk/action-bar-end.blp
++++ b/src/resources/gtk/action-bar-end.blp
+@@ -7,6 +7,7 @@ template $EphyActionBarEnd: Box {
+     transition-type: crossfade;
+ 
+     MenuButton downloads_button {
++      has-frame: false;
+       tooltip-text: _("Downloads");
+       receives-default: true;
+ 
