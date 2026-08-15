@@ -1,0 +1,22 @@
+diff --git a/src/ephy-shell.c b/src/ephy-shell.c
+index 92df19940..61d5239e9 100644
+--- a/src/ephy-shell.c
++++ b/src/ephy-shell.c
+@@ -529,8 +529,16 @@ ephy_shell_startup (GApplication *application)
+   /* Apply elementary stylesheet instead of default Adwaita stylesheet.
+    * This needs to be before calling the parent startup() to work.
+    */
+-  if (is_desktop_pantheon ())
++  if (is_desktop_pantheon ()) {
++    // granite_init() calls gdk_display_manager_get() internally without
++    // initializing Gtk, which is illegal and causes an intentional
++    // crash since Gtk 4.17. So, initialize Gtk explicitly here as a
++    // workaround.
++    // TODO: Remove this when https://github.com/elementary/granite/pull/893 is released
++    gtk_init();
++
+     granite_init ();
++  }
+ #endif
+ 
+   G_APPLICATION_CLASS (ephy_shell_parent_class)->startup (application);

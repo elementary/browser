@@ -34,6 +34,10 @@
                 },
                 {
                     "type": "patch",
+                    "path": "explicit-gtk-init.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "downloads-flat.patch"
                 },
                 {
