@@ -1,0 +1,13 @@
+diff --git a/src/resources/gtk/location-entry.blp b/src/resources/gtk/location-entry.blp
+index 8b67f3c49..4ddd14480 100644
+--- a/src/resources/gtk/location-entry.blp
++++ b/src/resources/gtk/location-entry.blp
+@@ -19,7 +19,7 @@ template $EphyLocationEntry: Box {
+           [start]
+           $EphySiteMenuButton site_menu_button {
+             focus-on-click: false;
+-            valign: center;
++            valign: fill;
+ 
+             styles [
+               "entry-icon",

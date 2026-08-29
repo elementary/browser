@@ -56,6 +56,10 @@
                 },
                 {
                     "type": "patch",
+                    "path": "align-site-menu-button.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "downloads-flat.patch"
                 },
                 {
