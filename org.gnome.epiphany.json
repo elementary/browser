@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Epiphany",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "8.2",
+    "runtime-version": "9",
     "sdk": "io.elementary.Sdk",
     "command": "epiphany",
     "finish-args": [
@@ -31,10 +31,6 @@
                         "type": "gnome",
                         "name": "epiphany"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "explicit-gtk-init.patch"
                 },
                 {
                     "type": "patch",
