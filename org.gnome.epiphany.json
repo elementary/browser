@@ -61,6 +61,10 @@
                 {
                     "type": "patch",
                     "path": "overview-button.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "progressbar-style.patch"
                 }
             ],
             "cleanup": [
