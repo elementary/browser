@@ -1,0 +1,43 @@
+diff --git a/src/resources/style-elementary.css b/src/resources/style-elementary.css
+index 610fcae84..1ad085081 100644
+--- a/src/resources/style-elementary.css
++++ b/src/resources/style-elementary.css
+@@ -119,3 +119,38 @@ popover.suggestions listview > row:selected {
+   background: rgba(0, 0, 0, 0.65);
+   color: white;
+ }
++
++/* Borrowed from src/stylesheet/widgets/_progress-bar.scss in libadwaita */
++
++/* Thin progress bar with no trough, usually goes under the header bar */
++progressbar.osd {
++    /* Unset some of default styles in our stylesheet */
++    background-color: unset;
++    padding: unset;
++    border-radius: unset;
++    box-shadow: unset;
++    margin: unset;
++
++    min-width: 2px;
++    min-height: 2px;
++}
++progressbar.osd > trough {
++    border-style: none;
++    border-radius: 0;
++    background-color: transparent;
++    box-shadow: none;
++}
++progressbar.osd > trough > progress {
++    border-style: none;
++    border-radius: 0;
++}
++progressbar.osd.horizontal > trough, progressbar.osd.horizontal > trough > progress {
++    min-height: 2px;
++}
++progressbar.osd.vertical > trough, progressbar.osd.vertical > trough > progress {
++    min-width: 2px;
++}
++progressbar.osd > trough.empty > progress {
++    /* makes the progress indicator disappear, when the fraction is 0 */
++    all: unset;
++}
