@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Epiphany",
     "runtime": "io.elementary.Platform",
-    "runtime-version": "9",
+    "runtime-version": "9.1",
     "sdk": "io.elementary.Sdk",
     "command": "epiphany",
     "finish-args": [
