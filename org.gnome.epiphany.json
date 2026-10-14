@@ -17,6 +17,28 @@
     ],
     "modules": [
         {
+            "name": "libpwquality",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--disable-python-bindings",
+                "--with-securedir=/app/lib/security"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libpwquality/libpwquality/archive/libpwquality-1.4.5.tar.gz",
+                    "sha256": "602f1f54de52cf1589a60dd44f469a62c90d59a55d381acd45d2d1db9ca6f078",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/libpwquality/libpwquality/releases/latest",
+                        "version-query": ".tag_name | sub(\"^libpwquality-\"; \"\")",
+                        "url-query": "\"https://github.com/libpwquality/libpwquality/archive/\" + .tag_name + \".tar.gz\"",
+                        "timestamp-query": ".published_at"
+                    }
+                }
+            ]
+        },
+        {
             "name": "epiphany",
             "buildsystem": "meson",
             "config-opts": [
@@ -25,12 +47,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/epiphany/48/epiphany-48.5.tar.xz",
-                    "sha256": "0f66552ad6593c7952a3ddee5bf515656c8c434871076d9f1a91a7af9346b1b4",
+                    "url": "https://download.gnome.org/sources/epiphany/51/epiphany-51.0.tar.xz",
+                    "sha256": "abaf33576462030c65bb963a56300a7786e7d75834f1c90a9dffda873835c33d",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "epiphany"
                     }
+                },
+                {
+                    "type": "patch",
+                    "path": "align-site-menu-button.patch"
                 },
                 {
                     "type": "patch",
@@ -39,6 +65,10 @@
                 {
                     "type": "patch",
                     "path": "overview-button.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "progressbar-style.patch"
                 }
             ],
             "cleanup": [
