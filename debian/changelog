@@ -1,3 +1,9 @@
+org.gnome.epiphany (51.3) noble; urgency=medium
+
+  * New upstream release
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Thu, 26 Nov 2026 23:43:44 +0900
+
 org.gnome.epiphany (51.2) noble; urgency=medium
 
   * New upstream release
